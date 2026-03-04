@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "UK 49s Brunchtime Hot & Cold Numbers | Frequency Analysis",
+  title: "UK 49s Brunchtime Hot & Cold Numbers",
   description: "Discover the most frequently drawn and overdue numbers in UK 49s Brunchtime. Use hot and cold number statistics to guide your daily picks.",
 };
 

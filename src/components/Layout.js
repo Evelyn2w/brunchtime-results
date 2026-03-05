@@ -9,8 +9,8 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const mainLinks = [
-    { href: "/", label: "Results" },
-    { href: "/predictions", label: "Predictions" },
+    { href: "/", label: "Home" },
+    { href: "/hot-numbers", label: "Hot Numbers" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -32,7 +32,7 @@ export function Navbar() {
           <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: "linear-gradient(135deg, #1e6de5, #0a1628)", border: "2px solid #1e6de5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>🍳</div>
           <div>
             <div style={{ fontWeight: "800", fontSize: "15px", color: "#ffffff" }}>Brunchtime <span style={{ color: "#4a90e2" }}>Results</span></div>
-            <div style={{ fontSize: "10px", color: "#5a7aaa" }}>UK 49s • 10:49 AM</div>
+            <div style={{ fontSize: "10px", color: "#ffffff" }}>UK 49s • 10:49 AM</div>
           </div>
         </Link>
 
@@ -51,11 +51,11 @@ export function Navbar() {
         </nav>
 
         <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger"
-          style={{ background: "none", border: "1px solid #1d3461", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", display: "none", flexDirection: "column", gap: "5px" }}
+          style={{ background: "none", border: "1px solid #ffffff44", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", display: "none", flexDirection: "column", gap: "5px" }}
           aria-label="Menu">
-          <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "#4a90e2" : "#8aabcc", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px,5px)" : "none" }} />
-          <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "transparent" : "#8aabcc", transition: "all 0.2s" }} />
-          <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "#4a90e2" : "#8aabcc", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px,-5px)" : "none" }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: "#ffffff", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px,5px)" : "none" }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "transparent" : "#ffffff", transition: "all 0.2s" }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: "#ffffff", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px,-5px)" : "none" }} />
         </button>
       </div>
 
@@ -64,11 +64,11 @@ export function Navbar() {
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
             {isHome && (
               <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
-                <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Jump To</div>
+                <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Jump To</div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                   {[["#today","Today's Result"],["#yesterday","Yesterday"],["#history","Last 15 Draws"]].map(([href, label]) => (
                     <a key={href} href={href} onClick={() => setMenuOpen(false)}
-                      style={{ background: "#1e6de533", border: "1px solid #1e6de555", color: "#4a90e2", padding: "7px 14px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
+                      style={{ background: "#1e6de533", border: "1px solid #ffffff44", color: "#ffffff", padding: "7px 14px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
                       {label}
                     </a>
                   ))}
@@ -76,22 +76,22 @@ export function Navbar() {
               </div>
             )}
             <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
-              <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Pages</div>
+              <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Pages</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {mainLinks.map(({ href, label }) => (
                   <Link key={href} href={href} onClick={() => setMenuOpen(false)}
-                    style={{ background: pathname === href ? "#1d3461" : "#112240", color: pathname === href ? "#ffffff" : "#8aabcc", padding: "10px 14px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none", border: "1px solid #1d3461" }}>
+                    style={{ background: pathname === href ? "#1d3461" : "#112240", color: "#ffffff", padding: "10px 14px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none", border: "1px solid #ffffff22" }}>
                     {label}
                   </Link>
                 ))}
               </div>
             </div>
             <div>
-              <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Guides & Info</div>
+              <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Guides & Info</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {guideLinks.map(({ href, label }) => (
                   <Link key={href} href={href} onClick={() => setMenuOpen(false)}
-                    style={{ background: "#112240", color: "#8aabcc", padding: "10px 14px", borderRadius: "8px", fontSize: "13px", fontWeight: "500", textDecoration: "none", border: "1px solid #1d3461" }}>
+                    style={{ background: "#112240", color: "#ffffff", padding: "10px 14px", borderRadius: "8px", fontSize: "13px", fontWeight: "500", textDecoration: "none", border: "1px solid #ffffff22" }}>
                     {label}
                   </Link>
                 ))}
@@ -117,7 +117,7 @@ export function Navbar() {
 
 function navStyle(active) {
   return {
-    color: active ? "#ffffff" : "#8aabcc",
+    color: "#ffffff",
     textDecoration: "none", fontSize: "14px", fontWeight: "600",
     padding: "6px 11px", borderRadius: "8px",
     background: active ? "#1d3461" : "transparent",
@@ -129,28 +129,30 @@ export function Footer() {
     <footer style={{ background: "#0a1628", borderTop: "1px solid #1d3461", padding: "48px 24px 24px" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: "32px", marginBottom: "40px" }}>
+
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
               <span style={{ fontSize: "20px" }}>🍳</span>
               <span style={{ fontWeight: "800", fontSize: "15px", color: "#ffffff" }}>Brunchtime Results</span>
             </div>
-            <p style={{ color: "#5a7aaa", fontSize: "13px", lineHeight: 1.7 }}>
+            <p style={{ color: "#ffffff", fontSize: "13px", lineHeight: 1.7 }}>
               Accurate UK 49s Brunchtime winning numbers, updated within minutes of every 10:49 AM draw.
             </p>
           </div>
+
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Results</div>
             {[
               { href: "/", label: "Today's Results" },
               { href: "/#yesterday", label: "Yesterday's Results" },
               { href: "/#history", label: "Last 15 Draws" },
-              { href: "/predictions", label: "Today's Predictions" },
             ].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
-                <Link href={href} style={{ color: "#5a7aaa", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
+                <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>
             ))}
           </div>
+
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Guides</div>
             {[
@@ -162,10 +164,11 @@ export function Footer() {
               { href: "/winning-tips", label: "Winning Tips" },
             ].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
-                <Link href={href} style={{ color: "#5a7aaa", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
+                <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>
             ))}
           </div>
+
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Legal & Info</div>
             {[
@@ -175,26 +178,15 @@ export function Footer() {
               { href: "/terms", label: "Terms & Conditions" },
             ].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
-                <Link href={href} style={{ color: "#5a7aaa", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
+                <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>
             ))}
-            <div style={{ marginTop: "16px" }}>
-              <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Other Draws</div>
-              {[
-                { href: "https://star49s.com/results/lunchtime", label: "Lunchtime Results" },
-                { href: "https://star49s.com/results/teatime", label: "Teatime Results" },
-                { href: "https://star49s.com/results/drivetime", label: "Drivetime Results" },
-              ].map(({ href, label }) => (
-                <div key={label} style={{ marginBottom: "9px" }}>
-                  <a href={href} rel="dofollow" style={{ color: "#5a7aaa", textDecoration: "none", fontSize: "13px" }}>{label}</a>
-                </div>
-              ))}
-            </div>
           </div>
+
         </div>
-        <div style={{ borderTop: "1px solid #1d3461", paddingTop: "20px", display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
-          <p style={{ color: "#5a7aaa", fontSize: "12px" }}>© {new Date().getFullYear()} Brunchtime Results. All rights reserved.</p>
-          <p style={{ color: "#5a7aaa", fontSize: "12px" }}>Full history at <a href="https://star49s.com/results/brunchtime" rel="dofollow" style={{ color: "#4a90e2" }}>star49s.com</a></p>
+
+        <div style={{ borderTop: "1px solid #1d3461", paddingTop: "20px", textAlign: "center" }}>
+          <p style={{ color: "#ffffff", fontSize: "12px", margin: 0 }}>© {new Date().getFullYear()} Brunchtime Results. All rights reserved.</p>
         </div>
       </div>
     </footer>

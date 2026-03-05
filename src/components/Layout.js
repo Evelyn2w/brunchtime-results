@@ -7,19 +7,21 @@ export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
 
-  const mainLinks = [
-    { href: "/", label: "Home" },
+  const isStats = ["/hot-numbers", "/cold-numbers", "/overdue-numbers"].includes(pathname);
+  // Statistics has no page — just a dropdown menu
+
+  const statsLinks = [
     { href: "/hot-numbers", label: "Hot Numbers" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/cold-numbers", label: "Cold Numbers" },
+    { href: "/overdue-numbers", label: "Overdue Numbers" },
   ];
 
   const guideLinks = [
     { href: "/what-is-brunchtime", label: "What is Brunchtime?" },
     { href: "/how-to-play", label: "How to Play" },
     { href: "/booster-ball", label: "Booster Ball Guide" },
-    { href: "/hot-numbers", label: "Hot Numbers" },
     { href: "/brunchtime-draw-time", label: "Draw Time & Schedule" },
     { href: "/winning-tips", label: "Winning Tips" },
   ];
@@ -39,8 +41,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-          {/* Home always first, then homepage anchors inline */}
-          <Link href="/" style={navStyle(pathname === "/")} >Home</Link>
+          <Link href="/" style={navStyle(pathname === "/")}>Home</Link>
           {isHome && (
             <>
               <a href="#today" style={navStyle(false)}>Today</a>
@@ -49,7 +50,26 @@ export function Navbar() {
               <span style={{ color: "#1d3461", margin: "0 4px" }}>|</span>
             </>
           )}
-          <Link href="/hot-numbers" style={navStyle(pathname === "/hot-numbers")}>Hot Numbers</Link>
+
+          {/* Statistics Dropdown — no page, just submenu */}
+          <div style={{ position: "relative" }}
+            onMouseEnter={() => setStatsOpen(true)}
+            onMouseLeave={() => setStatsOpen(false)}>
+            <button style={{ ...navStyle(isStats), background: isStats ? "#1d3461" : statsOpen ? "#1d3461" : "transparent", border: "none", cursor: "default", display: "flex", alignItems: "center", gap: "5px" }}>
+              Statistics <span style={{ fontSize: "10px" }}>▾</span>
+            </button>
+            {statsOpen && (
+              <div style={{ position: "absolute", top: "100%", left: 0, background: "#0d1f3c", border: "1px solid #1d3461", borderRadius: "10px", padding: "8px", minWidth: "180px", boxShadow: "0 8px 24px rgba(0,0,0,0.3)", zIndex: 200 }}>
+                {statsLinks.map(({ href, label }) => (
+                  <Link key={href} href={href}
+                    style={{ display: "block", color: pathname === href ? "#4a90e2" : "#ffffff", textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 12px", borderRadius: "6px", background: pathname === href ? "#1d3461" : "transparent" }}>
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link href="/about" style={navStyle(pathname === "/about")}>About</Link>
           <Link href="/contact" style={navStyle(pathname === "/contact")}>Contact</Link>
         </nav>
@@ -81,10 +101,23 @@ export function Navbar() {
                 </div>
               </div>
             )}
+
+            <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
+              <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Statistics</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
+                {statsLinks.map(({ href, label }) => (
+                  <Link key={href} href={href} onClick={() => setMenuOpen(false)}
+                    style={{ background: pathname === href ? "#1d3461" : "#112240", color: "#ffffff", padding: "10px 14px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", textDecoration: "none", border: "1px solid #ffffff22", textAlign: "center" }}>
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
               <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Pages</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                {mainLinks.map(({ href, label }) => (
+                {[{ href: "/", label: "Home" }, { href: "/about", label: "About" }, { href: "/contact", label: "Contact" }].map(({ href, label }) => (
                   <Link key={href} href={href} onClick={() => setMenuOpen(false)}
                     style={{ background: pathname === href ? "#1d3461" : "#112240", color: "#ffffff", padding: "10px 14px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none", border: "1px solid #ffffff22" }}>
                     {label}
@@ -92,8 +125,9 @@ export function Navbar() {
                 ))}
               </div>
             </div>
+
             <div>
-              <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Guides & Info</div>
+              <div style={{ color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Guides</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {guideLinks.map(({ href, label }) => (
                   <Link key={href} href={href} onClick={() => setMenuOpen(false)}
@@ -148,11 +182,16 @@ export function Footer() {
 
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Results</div>
-            {[
-              { href: "/", label: "Today's Results" },
-              { href: "/#yesterday", label: "Yesterday's Results" },
-              { href: "/#history", label: "Last 15 Draws" },
-            ].map(({ href, label }) => (
+            {[{ href: "/", label: "Today's Results" }, { href: "/#yesterday", label: "Yesterday's Results" }, { href: "/#history", label: "Last 15 Draws" }].map(({ href, label }) => (
+              <div key={label} style={{ marginBottom: "9px" }}>
+                <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
+              </div>
+            ))}
+          </div>
+
+          <div>
+            <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Statistics</div>
+            {[{ href: "/hot-numbers", label: "🔥 Hot Numbers" }, { href: "/cold-numbers", label: "❄️ Cold Numbers" }, { href: "/overdue-numbers", label: "⏰ Overdue Numbers" }].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
                 <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>
@@ -161,14 +200,7 @@ export function Footer() {
 
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Guides</div>
-            {[
-              { href: "/what-is-brunchtime", label: "What is Brunchtime?" },
-              { href: "/how-to-play", label: "How to Play UK 49s" },
-              { href: "/booster-ball", label: "Booster Ball Explained" },
-              { href: "/hot-numbers", label: "Hot Numbers" },
-              { href: "/brunchtime-draw-time", label: "Draw Time & Schedule" },
-              { href: "/winning-tips", label: "Winning Tips" },
-            ].map(({ href, label }) => (
+            {[{ href: "/what-is-brunchtime", label: "What is Brunchtime?" }, { href: "/how-to-play", label: "How to Play UK 49s" }, { href: "/booster-ball", label: "Booster Ball Explained" }, { href: "/brunchtime-draw-time", label: "Draw Time & Schedule" }, { href: "/winning-tips", label: "Winning Tips" }].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
                 <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>
@@ -177,12 +209,7 @@ export function Footer() {
 
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Legal & Info</div>
-            {[
-              { href: "/about", label: "About Us" },
-              { href: "/contact", label: "Contact" },
-              { href: "/privacy-policy", label: "Privacy Policy" },
-              { href: "/terms", label: "Terms & Conditions" },
-            ].map(({ href, label }) => (
+            {[{ href: "/about", label: "About Us" }, { href: "/contact", label: "Contact" }, { href: "/privacy-policy", label: "Privacy Policy" }, { href: "/terms", label: "Terms & Conditions" }].map(({ href, label }) => (
               <div key={label} style={{ marginBottom: "9px" }}>
                 <Link href={href} style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px" }}>{label}</Link>
               </div>

@@ -205,17 +205,36 @@ export default async function HomePage() {
           </section>
         )}
 
+        {/* Statistics Section */}
         <section style={{ marginBottom:"40px" }}>
-          <h2 style={{ fontSize:"16px", fontWeight:"700", color:"#1a1a1a", marginBottom:"14px" }}>Brunchtime Guides</h2>
+          <h2 style={{ fontSize:"16px", fontWeight:"700", color:"#1a1a1a", marginBottom:"14px" }}>📊 Number Statistics</h2>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:"10px" }}>
+            {[
+              {href:"/hot-numbers",icon:"🔥",title:"Hot Numbers",desc:"Most frequently drawn"},
+              {href:"/cold-numbers",icon:"❄️",title:"Cold Numbers",desc:"Least frequently drawn"},
+              {href:"/overdue-numbers",icon:"⏰",title:"Overdue Numbers",desc:"Long absent numbers"},
+            ].map(({href,icon,title,desc}) => (
+              <Link key={href} href={href} style={{ background:"#ffffff", border:"1px solid #e8ecf0", borderRadius:"8px", padding:"16px", textDecoration:"none", display:"flex", alignItems:"center", gap:"12px" }}>
+                <span style={{ fontSize:"24px" }}>{icon}</span>
+                <div>
+                  <div style={{ fontSize:"16px", fontWeight:"700", color:"#1a1a1a" }}>{title}</div>
+                  <div style={{ fontSize:"13px", color:"#666666", marginTop:"2px" }}>{desc}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Guides Section */}
+        <section style={{ marginBottom:"40px" }}>
+          <h2 style={{ fontSize:"16px", fontWeight:"700", color:"#1a1a1a", marginBottom:"14px" }}>📚 Brunchtime Guides</h2>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:"10px" }}>
             {[
               {href:"/what-is-brunchtime",icon:"📖",title:"What is Brunchtime?"},
               {href:"/how-to-play",icon:"🎮",title:"How to Play"},
               {href:"/booster-ball",icon:"⭐",title:"Booster Ball Guide"},
-              {href:"/hot-numbers",icon:"🔥",title:"Hot & Cold Numbers"},
               {href:"/brunchtime-draw-time",icon:"🕙",title:"Draw Time & Schedule"},
               {href:"/winning-tips",icon:"💡",title:"Winning Tips"},
-              {href:"/predictions",icon:"🎯",title:"Today's Predictions"},
             ].map(({href,icon,title}) => (
               <Link key={href} href={href} style={{ background:"#ffffff", border:"1px solid #e8ecf0", borderRadius:"8px", padding:"14px 16px", textDecoration:"none", display:"flex", alignItems:"center", gap:"10px" }}>
                 <span style={{ fontSize:"18px" }}>{icon}</span>

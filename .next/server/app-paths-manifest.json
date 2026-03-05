@@ -1,10 +1,5 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/about/page": "app/about/page.js",
-  "/predictions/page": "app/predictions/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/how-to-play/page": "app/how-to-play/page.js",
-  "/what-is-brunchtime/page": "app/what-is-brunchtime/page.js",
-  "/hot-numbers/page": "app/hot-numbers/page.js",
-  "/winning-tips/page": "app/winning-tips/page.js"
+  "/privacy-policy/page": "app/privacy-policy/page.js"
 }

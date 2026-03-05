@@ -1,4 +1,3 @@
-cat > src/app/privacy-policy/page.js << 'ENDOFFILE'
 export const metadata = {
   title: "Privacy Policy | Brunchtime Results",
   description: "Privacy Policy for Brunchtime Results website.",
@@ -34,4 +33,3 @@ export default function PrivacyPage() {
     </main>
   );
 }
-ENDOFFILE

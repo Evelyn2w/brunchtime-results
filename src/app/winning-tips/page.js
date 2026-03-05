@@ -1,116 +1,88 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "UK 49s Brunchtime Winning Tips & Strategies | Expert Guide",
-  description: "Practical tips and betting strategies for UK 49s Brunchtime. Learn how to choose numbers, manage your bankroll, and improve your winning chances.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://brunchtime-results.vercel.app/winning-tips" },
+  title: "UK 49s Brunchtime Winning Tips | Smart Betting Strategies",
+  description: "Practical tips and strategies for UK 49s Brunchtime players. Learn how to manage your bets, use statistics, and play smarter.",
 };
 
 export default function WinningTipsPage() {
   return (
-    <main style={{ minHeight: "80vh", background: "#f8faff" }}>
-      <section style={{ background: "linear-gradient(135deg,#0a1628,#1d3461)", padding: "52px 24px 40px" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <div style={{ display: "inline-block", background: "#1e6de522", border: "1px solid #1e6de544", borderRadius: "20px", padding: "5px 14px", marginBottom: "16px" }}>
-            <span style={{ color: "#4a90e2", fontSize: "12px", fontWeight: "700" }}>💡 STRATEGY GUIDE</span>
-          </div>
-          <h1 style={{ fontSize: "clamp(26px,4vw,46px)", fontWeight: "900", color: "#ffffff", lineHeight: 1.2, marginBottom: "14px" }}>
-            Brunchtime Winning<br /><span style={{ color: "#4a90e2" }}>Tips & Strategies</span>
-          </h1>
-          <p style={{ color: "#8aabcc", fontSize: "16px", lineHeight: 1.7 }}>
-            Practical strategies used by experienced UK 49s players to improve their results.
-          </p>
-        </div>
-      </section>
+    <main style={{ minHeight: "80vh", background: "#f4f6f8" }}>
 
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px 64px" }}>
+      <nav aria-label="breadcrumb" style={{ background: "#ffffff", borderBottom: "1px solid #e8ecf0", padding: "10px 0" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "10px 24px", display: "flex", alignItems: "center", flexWrap: "wrap", gap: "2px" }}>
+          <Link href="/" style={{ color: "#2471a3", textDecoration: "none", fontSize: "14px", fontWeight: "500", whiteSpace: "nowrap" }}>Home</Link>
+          <span style={{ color: "#aaaaaa", margin: "0 8px", fontSize: "14px" }}>›</span>
+          <span style={{ color: "#666666", fontSize: "14px", whiteSpace: "nowrap" }}>Guides</span>
+          <span style={{ color: "#aaaaaa", margin: "0 8px", fontSize: "14px" }}>›</span>
+          <span style={{ color: "#1a1a1a", fontWeight: "600", fontSize: "14px", whiteSpace: "nowrap" }}>Winning Tips</span>
+        </div>
+      </nav>
+
+      <div style={{ background: "#ffffff", borderBottom: "1px solid #e8ecf0", padding: "32px 0", textAlign: "center" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
+          <h1 style={{ fontSize: "clamp(26px,4vw,42px)", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>UK 49s Brunchtime Winning Tips</h1>
+          <p style={{ color: "#1a1a1a", fontSize: "18px", lineHeight: 1.7, marginTop: "12px", marginBottom: 0 }}>Practical strategies to help you bet smarter and enjoy the game more.</p>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "32px 24px 64px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
 
-          {/* Top tips */}
-          <div style={{ background: "#ffffff", border: "1px solid #e2e8f8", borderRadius: "16px", padding: "28px" }}>
-            <h2 style={{ fontSize: "20px", fontWeight: "800", color: "#0a1628", marginBottom: "20px" }}>Top 8 Brunchtime Strategies</h2>
-            {[
-              { n: "01", title: "Start with 2-Number Bets", text: "Two-number bets offer the best balance of risk vs reward for most players. The odds are manageable, payouts are reasonable, and you do not need all six numbers to match. Perfect starting point if you are new to UK 49s." },
-              { n: "02", title: "Always Play the 7-Ball Option", text: `The Booster Ball dramatically increases your matching chances. When you play 7-ball, your numbers are checked against all 7 drawn balls. Read our <a href="/booster-ball" style="color:#1e6de5">Booster Ball guide</a> to understand how this works in detail.` },
-              { n: "03", title: "Use Hot Numbers as Your Base", text: `Check our <a href="/hot-numbers" style="color:#1e6de5">hot numbers page</a> and use the top 3–5 most frequently drawn numbers as the foundation of your picks. Numbers like 5, 12, and 23 have historically appeared most often in Brunchtime draws.` },
-              { n: "04", title: "Add One Cold (Overdue) Number", text: "Mix in one cold number with your hot picks. While each draw is random, overdue numbers do tend to cluster over time. A 2-hot + 1-cold selection is a popular mixed approach." },
-              { n: "05", title: "Check Daily Predictions", text: `Our <a href="/predictions" style="color:#1e6de5">predictions page</a> provides statistically informed number suggestions every day. These are based on frequency analysis, overdue patterns, and historical draw data — a useful daily reference.` },
-              { n: "06", title: "Set a Fixed Daily Budget", text: "Decide on a fixed stake per day before you start — and stick to it. Never chase losses. Many experienced players bet the same small amount every day rather than varying stakes based on emotion." },
-              { n: "07", title: "Avoid Consecutive Number Sequences", text: "Numbers like 1, 2, 3, 4 rarely all appear together in random draws. Spread your picks across different ranges — low (1–16), mid (17–32), and high (33–49) for better distribution." },
-              { n: "08", title: "Track Your Own Results", text: "Keep a simple record of your daily picks and outcomes. Over time you will spot which number ranges perform better for you and can refine your strategy accordingly." },
-            ].map(({ n, title, text }) => (
-              <div key={n} style={{ display: "flex", gap: "16px", marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f0f4ff" }}>
-                <div style={{ minWidth: "40px", height: "40px", borderRadius: "10px", background: "#f0f5ff", border: "2px solid #d0daf0", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "900", fontSize: "13px", color: "#1e6de5", flexShrink: 0 }}>{n}</div>
-                <div>
-                  <div style={{ fontWeight: "700", color: "#0a1628", fontSize: "16px", marginBottom: "6px" }}>{title}</div>
-                  <div style={{ color: "#5a6a8a", fontSize: "14px", lineHeight: 1.75 }} dangerouslySetInnerHTML={{ __html: text }} />
-                </div>
-              </div>
-            ))}
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 1 — Set a Budget and Stick to It</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>The single most important thing any UK 49s player can do is decide on a fixed betting budget before they start. This does not have to be a large amount — even a small daily or weekly limit works well. The key is that you decide in advance and do not go over it, regardless of whether you are winning or losing.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>Many experienced players treat their UK 49s bet like a subscription — a fixed small amount that buys them the entertainment of following the draw each day. When you think about it this way, every draw becomes enjoyable whether you win or not, because you have already decided the cost is acceptable.</p>
           </div>
 
-          {/* Bankroll section */}
-          <div style={{ background: "#ffffff", border: "1px solid #e2e8f8", borderRadius: "16px", padding: "28px" }}>
-            <h2 style={{ fontSize: "20px", fontWeight: "800", color: "#0a1628", marginBottom: "14px" }}>Bankroll Management</h2>
-            <p style={{ color: "#5a6a8a", fontSize: "15px", lineHeight: 1.85, marginBottom: "16px" }}>
-              The most important skill in any betting game is not picking numbers — it is managing your money. Here is a simple approach used by consistent players:
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 2 — Understand Hot and Cold Numbers</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>Hot numbers are the ones that have appeared most frequently in recent draws. Cold numbers are the ones that have not been drawn for a while. Many players use this data to guide their number selection, and while it is important to remember that each draw is statistically independent, looking at frequency patterns can still be a useful tool.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>A common approach is to combine a few hot numbers with one or two cold ones. The idea is that hot numbers have proven themselves recently, while cold numbers are statistically overdue. There is no guaranteed system, but this mixed strategy gives you a thoughtful approach rather than just picking at random.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>You can check our <Link href="/hot-numbers" style={{ color: "#2471a3", fontWeight: "600" }}>Hot Numbers page</Link> for an updated breakdown of the most and least frequently drawn numbers.</p>
+          </div>
+
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 3 — Start Small With Your Number Selection</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>If you are new to UK 49s, it is tempting to pick lots of numbers in hopes of a big win. However, betting on five or six numbers at once is hard to win and can drain your budget quickly. Most experienced players recommend starting with one, two, or three numbers until you have a good feel for the game.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>A two-number bet is often seen as the sweet spot for regular players. It gives you a reasonable chance of winning while still offering a worthwhile payout. As you gain more experience and confidence, you can experiment with three or four numbers on selected days.</p>
+          </div>
+
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 4 — Use the 7-Ball Option Wisely</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>The Booster Ball adds an extra dimension to every UK 49s draw. Choosing the 7-ball option means your numbers can match against all seven drawn balls rather than just six. This is especially useful when betting on a single number, as it nearly doubles your chances of matching it.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>However, 7-ball bets come with lower odds, so your payout per win will be smaller. A sensible approach is to use 7-ball for smaller bets where you want more frequent wins, and consider 6-ball when you are placing a higher-stakes bet and looking for a bigger return.</p>
+          </div>
+
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 5 — Keep a Record of Your Bets</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>One of the most overlooked habits among casual players is tracking their bets. Keeping a simple record of what you bet, how much you staked, and what the outcome was helps you stay honest about your results and identify patterns in your own play.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>You do not need anything complicated — a notes app or a simple spreadsheet works perfectly. Over time, you will be able to see which number selections have worked better for you, how your wins and losses compare, and whether your overall approach is sustainable.</p>
+          </div>
+
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a1a", marginBottom: "16px" }}>Tip 6 — Never Chase Losses</h2>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: "14px" }}>This is perhaps the most important rule for any form of betting. If you have a bad run of results, the temptation can be to increase your next bet to try to win it back. This almost never works and can quickly lead to much larger losses than you intended.</p>
+            <p style={{ fontSize: "18px", color: "#1a1a1a", lineHeight: 1.8, marginBottom: 0 }}>If you hit your daily or weekly budget limit, stop for the day. The Brunchtime draw runs every single day — there is always another chance tomorrow. Taking a break and coming back fresh is always a better decision than chasing losses in the heat of the moment.</p>
+          </div>
+
+          <div style={{ background: "#fff8e1", border: "1px solid #f0a500", borderRadius: "12px", padding: "20px 24px" }}>
+            <p style={{ color: "#7a5a00", fontSize: "16px", lineHeight: 1.6, margin: 0 }}>
+              <strong>⚠️ Responsible Gambling:</strong> These tips are for informational purposes only. UK 49s draws are random events and no strategy guarantees a win. Always gamble responsibly. For support visit <strong>begambleaware.org</strong> or call 0808 8020 133.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: "14px" }}>
-              {[
-                { icon: "📅", title: "Daily limit", text: "Set a fixed daily maximum. Most successful players use £1–£5 per day." },
-                { icon: "🚫", title: "No chasing", text: "After a losing day, do not double your stake. Flat betting protects your bankroll." },
-                { icon: "📊", title: "Track monthly", text: "Review wins vs losses once a month. Adjust your strategy if needed, not your emotions." },
-                { icon: "💳", title: "Separate funds", text: "Keep betting money separate from household expenses. Treat it as entertainment budget." },
-              ].map(({ icon, title, text }) => (
-                <div key={title} style={{ background: "#f8faff", borderRadius: "10px", padding: "16px" }}>
-                  <div style={{ fontSize: "20px", marginBottom: "8px" }}>{icon}</div>
-                  <div style={{ fontWeight: "700", color: "#0a1628", fontSize: "14px", marginBottom: "5px" }}>{title}</div>
-                  <div style={{ color: "#5a6a8a", fontSize: "13px", lineHeight: 1.6 }}>{text}</div>
-                </div>
+          </div>
+
+          <div style={{ background: "#ffffff", border: "1px solid #e8ecf0", borderRadius: "12px", padding: "24px 28px" }}>
+            <h3 style={{ color: "#1a1a1a", fontWeight: "700", fontSize: "18px", marginBottom: "14px" }}>Related Guides</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: "10px" }}>
+              {[["/what-is-brunchtime","📖 What is Brunchtime?"],["/how-to-play","🎮 How to Play"],["/booster-ball","⭐ Booster Ball Guide"],["/hot-numbers","🔥 Hot Numbers"],["/brunchtime-draw-time","🕙 Draw Time"],["/","📊 Today's Results"]].map(([href,label]) => (
+                <Link key={href} href={href} style={{ background: "#f4f6f8", border: "1px solid #e8ecf0", borderRadius: "8px", padding: "12px 14px", textDecoration: "none", color: "#1a1a1a", fontSize: "14px", fontWeight: "600" }}>{label}</Link>
               ))}
             </div>
           </div>
 
-          {/* Common mistakes */}
-          <div style={{ background: "#0a1628", borderRadius: "16px", padding: "28px" }}>
-            <h2 style={{ fontSize: "18px", fontWeight: "800", color: "#ffffff", marginBottom: "16px" }}>❌ Common Mistakes to Avoid</h2>
-            {[
-              ["Betting 6 numbers every day", "High-number bets drain your bankroll fast. Stick to 2–3 numbers for sustainable play."],
-              ["Ignoring the Booster Ball", "Not using the 7-ball option is one of the most common beginners' mistakes."],
-              ["Using only birthdays and anniversaries", "Numbers 1–31 are over-represented when players use dates. Spread across the full 1–49 range."],
-              ["Changing numbers every single draw", "Pick a core set of numbers and stick with them for a period. Consistency helps you track performance."],
-              ["Betting without checking results first", "Always check the latest results before placing a bet — patterns from recent draws matter."],
-            ].map(([mistake, fix]) => (
-              <div key={mistake} style={{ display: "flex", gap: "12px", marginBottom: "14px" }}>
-                <span style={{ color: "#dc2626", fontSize: "16px", flexShrink: 0 }}>✗</span>
-                <div>
-                  <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "14px", marginBottom: "3px" }}>{mistake}</div>
-                  <div style={{ color: "#5a7aaa", fontSize: "13px" }}>{fix}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Related */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: "10px" }}>
-            {[
-              ["/", "📊 Today's Results"],
-              ["/predictions", "🎯 Daily Predictions"],
-              ["/hot-numbers", "🔥 Hot Numbers"],
-              ["/booster-ball", "⭐ Booster Ball"],
-              ["/how-to-play", "🎮 How to Play"],
-              ["/brunchtime-draw-time", "🕙 Draw Schedule"],
-            ].map(([href, label]) => (
-              <Link key={href} href={href} style={{ background: "#ffffff", border: "1px solid #e2e8f8", borderRadius: "10px", padding: "13px 16px", textDecoration: "none", color: "#0a1628", fontWeight: "600", fontSize: "13px", textAlign: "center" }}>
-                {label}
-              </Link>
-            ))}
-          </div>
-
-          <div style={{ background: "#fff8e1", border: "1px solid #f0a500", borderRadius: "12px", padding: "16px 20px" }}>
-            <p style={{ color: "#7a5a00", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>
-              <strong>⚠️ Responsible Gambling:</strong> These tips are for entertainment purposes. No strategy guarantees winnings in a random draw. Please gamble responsibly. For help: <strong>GamCare 0808 8020 133</strong> or <strong>BeGambleAware.org</strong>.
-            </p>
-          </div>
         </div>
       </div>
     </main>

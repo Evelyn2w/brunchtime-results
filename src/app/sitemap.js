@@ -2,7 +2,6 @@ export default function sitemap() {
   const base = "https://brunchtime-results.vercel.app";
   const pages = [
     { url: base, priority: 1.0, changeFrequency: "daily" },
-    { url: `${base}/predictions`, priority: 0.9, changeFrequency: "daily" },
     { url: `${base}/hot-numbers`, priority: 0.9, changeFrequency: "daily" },
     { url: `${base}/what-is-brunchtime`, priority: 0.85, changeFrequency: "monthly" },
     { url: `${base}/how-to-play`, priority: 0.85, changeFrequency: "monthly" },

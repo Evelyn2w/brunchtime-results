@@ -117,12 +117,12 @@ export default async function HomePage() {
     <main style={{ minHeight:"100vh", background:"#f4f6f8" }}>
 
       <div style={{ background:"#ffffff", borderBottom:"1px solid #e8ecf0", padding:"24px" }}>
-        <div style={{ maxWidth:"900px", margin:"0 auto", textAlign:"center" }}>
+        <div style={{ maxWidth:"1100px", margin:"0 auto", textAlign:"center" }}>
           <h1 style={{ fontSize:"28px", fontWeight:"900", color:"#1a1a1a", margin:0 }}>UK 49s Brunchtime Results</h1>
         </div>
       </div>
 
-      <div style={{ maxWidth:"900px", margin:"0 auto", padding:"24px 24px 64px" }}>
+      <div style={{ maxWidth:"1100px", margin:"0 auto", padding:"24px 24px 64px" }}>
 
         {latest.length > 0 && (
           <section id="today" style={{ marginBottom:"16px", scrollMarginTop:"80px" }}>

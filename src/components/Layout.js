@@ -26,8 +26,9 @@ export function Navbar() {
 
   return (
     <header style={{ background: "#0a1628", borderBottom: "1px solid #1d3461", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(10,22,40,0.2)" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
 
+        {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
           <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: "linear-gradient(135deg, #1e6de5, #0a1628)", border: "2px solid #1e6de5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>🍳</div>
           <div>
@@ -36,7 +37,10 @@ export function Navbar() {
           </div>
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+          {/* Home always first, then homepage anchors inline */}
+          <Link href="/" style={navStyle(pathname === "/")} >Home</Link>
           {isHome && (
             <>
               <a href="#today" style={navStyle(false)}>Today</a>
@@ -45,11 +49,12 @@ export function Navbar() {
               <span style={{ color: "#1d3461", margin: "0 4px" }}>|</span>
             </>
           )}
-          {mainLinks.map(({ href, label }) => (
-            <Link key={href} href={href} style={navStyle(pathname === href)}>{label}</Link>
-          ))}
+          <Link href="/hot-numbers" style={navStyle(pathname === "/hot-numbers")}>Hot Numbers</Link>
+          <Link href="/about" style={navStyle(pathname === "/about")}>About</Link>
+          <Link href="/contact" style={navStyle(pathname === "/contact")}>Contact</Link>
         </nav>
 
+        {/* Hamburger */}
         <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger"
           style={{ background: "none", border: "1px solid #ffffff44", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", display: "none", flexDirection: "column", gap: "5px" }}
           aria-label="Menu">
@@ -59,8 +64,9 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div style={{ background: "#0d1f3c", borderTop: "1px solid #1d3461", padding: "16px 20px 20px" }}>
+        <div style={{ background: "#0d1f3c", borderTop: "1px solid #1d3461", padding: "16px 24px 20px" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
             {isHome && (
               <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
@@ -127,7 +133,7 @@ function navStyle(active) {
 export function Footer() {
   return (
     <footer style={{ background: "#0a1628", borderTop: "1px solid #1d3461", padding: "48px 24px 24px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: "32px", marginBottom: "40px" }}>
 
           <div>

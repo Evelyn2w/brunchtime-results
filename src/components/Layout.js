@@ -28,7 +28,6 @@ export function Navbar() {
     <header style={{ background: "#0a1628", borderBottom: "1px solid #1d3461", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(10,22,40,0.2)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
 
-        {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
           <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: "linear-gradient(135deg, #1e6de5, #0a1628)", border: "2px solid #1e6de5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>🍳</div>
           <div>
@@ -37,8 +36,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "2px", "@media(max-width:768px)": { display: "none" } }} className="desktop-nav">
+        <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
           {isHome && (
             <>
               <a href="#today" style={navStyle(false)}>Today</a>
@@ -52,25 +50,18 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
+        <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger"
           style={{ background: "none", border: "1px solid #1d3461", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", display: "none", flexDirection: "column", gap: "5px" }}
-          className="hamburger"
-          aria-label="Menu"
-        >
+          aria-label="Menu">
           <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "#4a90e2" : "#8aabcc", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px,5px)" : "none" }} />
           <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "transparent" : "#8aabcc", transition: "all 0.2s" }} />
           <span style={{ display: "block", width: "20px", height: "2px", background: menuOpen ? "#4a90e2" : "#8aabcc", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px,-5px)" : "none" }} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div style={{ background: "#0d1f3c", borderTop: "1px solid #1d3461", padding: "16px 20px 20px" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-
-            {/* Anchor links only on homepage */}
             {isHome && (
               <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
                 <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Jump To</div>
@@ -84,8 +75,6 @@ export function Navbar() {
                 </div>
               </div>
             )}
-
-            {/* Main pages */}
             <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #1d3461" }}>
               <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Pages</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
@@ -97,8 +86,6 @@ export function Navbar() {
                 ))}
               </div>
             </div>
-
-            {/* Guide links */}
             <div>
               <div style={{ color: "#5a7aaa", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Guides & Info</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
@@ -142,17 +129,15 @@ export function Footer() {
     <footer style={{ background: "#0a1628", borderTop: "1px solid #1d3461", padding: "48px 24px 24px" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: "32px", marginBottom: "40px" }}>
-
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
               <span style={{ fontSize: "20px" }}>🍳</span>
               <span style={{ fontWeight: "800", fontSize: "15px", color: "#ffffff" }}>Brunchtime Results</span>
             </div>
-            <p style={{ color: "#5a7aaa", fontSize: "13px", lineHeight: 1.7, marginBottom: "12px" }}>
+            <p style={{ color: "#5a7aaa", fontSize: "13px", lineHeight: 1.7 }}>
               Accurate UK 49s Brunchtime winning numbers, updated within minutes of every 10:49 AM draw.
             </p>
           </div>
-
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Results</div>
             {[
@@ -166,7 +151,6 @@ export function Footer() {
               </div>
             ))}
           </div>
-
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Guides</div>
             {[
@@ -182,7 +166,6 @@ export function Footer() {
               </div>
             ))}
           </div>
-
           <div>
             <div style={{ color: "#ffffff", fontWeight: "700", fontSize: "13px", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Legal & Info</div>
             {[
@@ -209,7 +192,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
         <div style={{ borderTop: "1px solid #1d3461", paddingTop: "20px", display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
           <p style={{ color: "#5a7aaa", fontSize: "12px" }}>© {new Date().getFullYear()} Brunchtime Results. All rights reserved.</p>
           <p style={{ color: "#5a7aaa", fontSize: "12px" }}>Full history at <a href="https://star49s.com/results/brunchtime" rel="dofollow" style={{ color: "#4a90e2" }}>star49s.com</a></p>

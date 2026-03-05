@@ -113,7 +113,64 @@ const faqs = [
 export default async function HomePage() {
   const results = await getBrunchtimeResults();
   const latest = results.slice(0, 15);
+
+  const SITE_URL = "https://brunchtime-results.vercel.app";
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Brunchtime Results",
+    "url": SITE_URL,
+    "description": "UK 49s Brunchtime results updated daily. Check today's winning numbers and Booster Ball.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": `${SITE_URL}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brunchtime Results",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/favicon.ico`,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@star49s.com",
+      "contactType": "customer support"
+    }
+  };
+
+  const webpageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "UK 49s Brunchtime Results Today | Winning Numbers",
+    "url": SITE_URL,
+    "description": "Check today's UK 49s Brunchtime results. Latest winning numbers and Booster Ball from the daily 10:49 AM draw.",
+    "isPartOf": { "@type": "WebSite", "url": SITE_URL },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }]
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(([q, a]) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
+  };
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     <main style={{ minHeight:"100vh", background:"#f4f6f8" }}>
 
       <div style={{ background:"#ffffff", borderBottom:"1px solid #e8ecf0", padding:"24px" }}>
@@ -182,5 +239,6 @@ export default async function HomePage() {
 
       </div>
     </main>
+    </>
   );
 }
